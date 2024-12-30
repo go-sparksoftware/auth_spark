@@ -23,6 +23,28 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 TODO: List prerequisites and provide or point to information on how to
 start using the package.
 
+```
+flutter pub add auth_spark
+```
+
+```dart
+GoogleSignInButton(
+            clientId:
+                "123456...apps.googleusercontent.com",
+            onSignIn: (context, authentication) {
+              debugPrint("Signed in with ${authentication}");
+            });
+```
+```dart
+await Firebase.initializeApp(...);
+GoogleSignInButton.firebase(
+            clientId:
+                "123456...apps.googleusercontent.com",
+            onSignIn: (context, credential) {
+              debugPrint("Signed in with ${credential}");
+            });
+```
+
 ## Usage
 
 TODO: Include short and useful examples for package users. Add longer examples
