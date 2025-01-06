@@ -18,6 +18,7 @@ class AvatarButton extends StatelessWidget {
     this.onUserSettings,
     this.onAnonymousPressed,
     this.dialogActions = const [],
+    this.initialsOnly = false,
   });
   AvatarButton.firebase({
     super.key,
@@ -27,6 +28,7 @@ class AvatarButton extends StatelessWidget {
     this.onUserSettings,
     this.onAnonymousPressed,
     this.dialogActions = const [],
+    this.initialsOnly = false,
     FirebaseAuth? instance,
     FutureOr<AuthenticatedUser> Function(AuthenticatedUser user) lookup = same,
   }) : stream = authInstance(instance)
@@ -44,6 +46,7 @@ class AvatarButton extends StatelessWidget {
   final bool useDefaultUserDialog;
   final Widget Function(AuthenticatedUser user)? onAuthenticatedDialog;
   final List<Widget> dialogActions;
+  final bool initialsOnly;
 
   bool get canAuthenticatePress =>
       useDefaultUserDialog ||
@@ -57,7 +60,10 @@ class AvatarButton extends StatelessWidget {
             AuthenticatedUser user => IconButton(
                 onPressed:
                     canAuthenticatePress ? () => handle(context, user) : null,
-                icon: UserCircleAvatar(user: user),
+                icon: UserCircleAvatar(
+                  user: user,
+                  initialsOnly: initialsOnly,
+                ),
               ),
             _ => IconButton(
                 onPressed: onAnonymousPressed,
