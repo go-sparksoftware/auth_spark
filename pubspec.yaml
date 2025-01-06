@@ -5,11 +5,11 @@ homepage:
 publish_to: none
 
 environment:
-  sdk: ^3.6.0
-  flutter: ">=1.17.0"
+  sdk: ^3.3.4
 
 dependencies:
-  firebase_auth: ^5.3.3
+  firebase_auth: ^5.2.0
+  # firebase_auth: ^5.3.3
   flutter:
     sdk: flutter
   google_sign_in: ^6.2.2
@@ -19,7 +19,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^4.0.0
+  # flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
