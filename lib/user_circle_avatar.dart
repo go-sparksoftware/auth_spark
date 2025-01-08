@@ -24,7 +24,10 @@ class UserCircleAvatar extends StatelessWidget {
                     ? NetworkImage(user.avatarUrl!)
                     : null,
             child: initialsOnly || user.avatarUrl == null
-                ? Text(user.initials)
+                ? Text(user.initials,
+                    style: TextStyle(
+                        fontSize:
+                            radius)) // Incidentally, the radius and the font size have a 1:1 ratio
                 : null,
           ),
         _ => CircleAvatar(

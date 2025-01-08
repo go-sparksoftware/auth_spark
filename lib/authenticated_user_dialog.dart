@@ -11,11 +11,13 @@ class AuthenticatedUserDialog extends StatelessWidget {
       {super.key,
       this.actions = const [],
       this.showSignOut = true,
-      this.onUserSettings});
+      this.onUserSettings,
+      this.initialsOnly = false});
 
   final AuthenticatedUser user;
   final List<Widget> actions;
   final bool showSignOut;
+  final bool initialsOnly;
   final OnUserSettings? onUserSettings;
 
   @override
@@ -28,7 +30,10 @@ class AuthenticatedUserDialog extends StatelessWidget {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              UserCircleAvatar.large(user: user),
+              UserCircleAvatar.large(
+                user: user,
+                initialsOnly: initialsOnly,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text("Hello, ${user.displayName}",

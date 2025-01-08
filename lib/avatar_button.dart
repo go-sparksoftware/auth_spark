@@ -80,6 +80,7 @@ class AvatarButton extends StatelessWidget {
           context: context,
           builder: (context) => AuthenticatedUserDialog(
                 onUserSettings: onUserSettings,
+                initialsOnly: initialsOnly,
                 user,
                 actions: dialogActions,
               ));
